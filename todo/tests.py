@@ -59,7 +59,7 @@ class TaskViewTestCase(TestCase):
     def test_index_get_order_post(self):
         task1 = Task(title='task1', due_at=timezone.make_aware(datetime(2023, 7, 1)))
         task1.save()
-        task2 = Task(title='task2', due_at=timezone.make_aware(datetime(2023, 8, 1))) 
+        task2 = Task(title='task2', due_at=timezone.make_aware(datetime(2023, 8, 1)))
         task2.save()
         client = Client()
         response = client.get('/?order=post')
