@@ -31,7 +31,7 @@ def detail(request, task_id):
     }    
     return render(request, 'todo/detail.html', context)
 
-def update(request, tesk_id):
+def update(request, task_id):
     try:
         task = Task.objects.get(pk=task_id)
     except Task.DoesNotExist:
