@@ -44,6 +44,10 @@
         <li>Status: Completed</li>
         {% else %}
         <li>Status: Not Completed</li>
+        <form action="{% url 'complete_task' task.id %}" method="post">
+          {% csrf_token %}
+          <button type="submit">Complete Task</button>
+        </form>
         {% endif %}
       </ul>
     </div>

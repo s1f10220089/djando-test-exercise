@@ -6,5 +6,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', todo_views.index, name='index'),
     path('<int:task_id>/', todo_views.detail, name='detail'),
-    path('delete/<int:task_id>/', todo_views.delete, name='delete')
+    path('delete/<int:task_id>/', todo_views.delete, name='delete'),
+    path('complete/<int:task_id>/', todo_views.complete_task, name='complete_task'),
 ]
