@@ -98,3 +98,12 @@ class TaskViewTestCase(TestCase):
 
         self.assertEqual(response.status_code, 404)
         
+class TaskDeleteTestCase(TestCase):
+    def test_task_delete(self):
+        task = Task(title='task', due_at=timezone.make_aware(datetime(2023, 7, 1)))
+        task.save()
+        client = Client()
+        response = client.get('/delete/{}/'.format(task.pk))
+        
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.templates[0].name, 'todo/delete.html')
