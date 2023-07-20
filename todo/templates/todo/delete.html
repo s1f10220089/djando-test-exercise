@@ -1,0 +1,22 @@
+{% load static %}
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="INIAD">
+        <title>Delete Page</title>
+    </head>
+    <body>
+        <h1>投稿削除ページ</h1>
+        <h2>{{ task.title }}</h2>
+        <form action="{% url 'delete' task.id %}" method="post">
+            {% csrf_token %}
+            <div>投稿を削除しますか？：
+                <button type="submit">削除</button>
+            </div>
+            <br>
+            <div>
+                <a href="{% url 'index' %}">Top</a>
+            </div>
+        </form>
+    </body>
+</html>
